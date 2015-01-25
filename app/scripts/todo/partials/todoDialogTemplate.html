@@ -1,0 +1,55 @@
+<form name="todoForm" class="add-todo">
+    <md-dialog>
+        <md-input-container flex class="md-default-theme"
+                            ng-class="md-input-has-value">
+            <input class="md-input"
+                   type="text"
+                   name="taskDescription"
+                   ng-model="model.task"
+                   required
+                   ng-maxlength="140"/>
+
+            <span class="highlight"></span>
+            <span class="bar"></span>
+
+            <div ng-show="todoForm.taskDescription.$error.required && todoForm.taskDescription.$dirty" class="error">
+                This is required!
+            </div>
+            <div ng-show="todoForm.taskDescription.$error.maxlength && todoForm.taskDescription.$dirty" class="error">
+                Only 140 characters allowed!
+            </div>
+            <label>Task {{todo.task}}</label>
+
+        </md-input-container>
+
+        <md-input-container flex class="md-default-theme">
+
+            <input class="md-input"
+                   type="date"
+                   name="task"
+                   ng-model="model.completeBy"
+                   required/>
+            <span class="highlight"></span>
+            <span class="bar"></span>
+            <label>Complete By</label>
+        </md-input-container>
+
+        <md-input-container class="radio-button-container">
+            <md-radio-group ng-model="model.severity">
+                <md-radio-button value="High">High</md-radio-button>
+                <md-radio-button value="Medium">Medium</md-radio-button>
+                <md-radio-button value="Low">Low</md-radio-button>
+            </md-radio-group>
+        </md-input-container>
+
+        <div class="md-actions">
+            <md-button class="md-raised" ng-click="closeDialog()">
+                Close
+            </md-button>
+            <md-button class="md-raised md-primary"
+                       ng-click="saveTodo()">
+                Save
+            </md-button>
+        </div>
+    </md-dialog>
+</form>

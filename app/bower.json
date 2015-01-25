@@ -1,0 +1,26 @@
+{
+    "name": "todoApp",
+    "version": "1.0.0",
+    "authors": [
+        "Sagar Ganatraa <sagar@sagarganatra.com>"
+    ],
+    "description": "Todo App",
+    "moduleType": [
+        "amd"
+    ],
+    "license": "MIT",
+    "homepage": "index.html",
+    "private": true,
+    "ignore": [
+        "**/.*",
+        "node_modules",
+        "bower_components",
+        "test",
+        "tests"
+    ],
+    "dependencies": {
+        "angular-material": "~0.6.1",
+        "requirejs": "~2.1.15",
+        "jquery": "~2.1.3"
+    }
+}

@@ -1,0 +1,148 @@
+md-dialog {
+    padding: 40px 20px 5px;
+}
+
+md-input-container {
+    position: relative;
+    height: 80px;
+}
+
+input {
+    font-size: 18px;
+    padding: 0 5px;
+    display: block;
+    width: 300px;
+    border: none;
+    border-bottom: 1px solid #757575;
+}
+
+input:focus {
+    outline: none;
+}
+
+/* LABEL ======================================= */
+label {
+    color: #999;
+    font-size: 12px;
+    font-weight: normal;
+    position: absolute;
+    pointer-events: none;
+    left: 5px;
+    top: 0;
+    transition: 0.2s ease all;
+    -moz-transition: 0.2s ease all;
+    -webkit-transition: 0.2s ease all;
+}
+
+/* active state */
+input:focus ~ label, input:valid ~ label {
+    top: -20px;
+    font-size: 14px;
+    color: #5264AE;
+}
+
+/* BOTTOM BARS ================================= */
+
+/* active state */
+input:focus ~ .bar:before, input:focus ~ .bar:after {
+    width: 50%;
+}
+
+/* HIGHLIGHTER ================================== */
+.highlight {
+    position: absolute;
+    height: 60%;
+    width: 100px;
+    top: 5%;
+    left: 0;
+    pointer-events: none;
+    opacity: 0.5;
+}
+
+/* active state */
+input:focus ~ .highlight {
+    -webkit-animation: inputHighlighter 0.3s ease;
+    -moz-animation: inputHighlighter 0.3s ease;
+    animation: inputHighlighter 0.3s ease;
+}
+
+/* ANIMATIONS ================ */
+@-webkit-keyframes inputHighlighter {
+    from {
+        background: #5264AE;
+    }
+    to {
+        width: 0;
+        background: transparent;
+    }
+}
+
+@-moz-keyframes inputHighlighter {
+    from {
+        background: #5264AE;
+    }
+    to {
+        width: 0;
+        background: transparent;
+    }
+}
+
+@keyframes inputHighlighter {
+    from {
+        background: #5264AE;
+    }
+    to {
+        width: 0;
+        background: transparent;
+    }
+}
+
+.md-tile-content {
+    padding: 10px;
+}
+
+md-radio-button {
+    display: inline-block;
+}
+
+md-checkbox {
+    margin: 10px 5px;
+}
+
+.radio-button-container {
+    margin-bottom: 30px;
+
+}
+
+md-radio-group.md-default-theme:focus {
+    border: none;
+}
+
+.md-actions button {
+    width: 80px;
+}
+
+form.add-todo {
+    width: 450px;
+}
+
+.error {
+    color: #f50;
+    font-size: 12px;
+}
+
+.high-severity, .medium-severity, .low-severity {
+    border-left: 3px solid;
+}
+
+.high-severity {
+    border-color: #f50;
+}
+
+.medium-severity {
+    border-color: #f90;
+}
+
+.low-severity {
+    border-color: #0f0;
+}

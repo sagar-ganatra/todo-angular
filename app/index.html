@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title>Todo</title>
+    <link rel="stylesheet" href="bower_components/angular-material/angular-material.css"/>
+    <link rel="stylesheet" href="styles/app.css"/>
+</head>
+<body ng-controller="todoController">
+
+<div layout="column" layout-fill class="todo-list">
+    <md-toolbar>
+        <div class="md-toolbar-tools">
+            <span>TODO ANGULAR-REQUIREJS</span>
+
+            <span flex></span>
+            <md-button ng-click="showTodoDialog($event)">
+                ADD TODO
+            </md-button>
+        </div>
+    </md-toolbar>
+    <md-content>
+        <md-list>
+            <md-item ng-repeat="todo in todoList | orderBy: ['completed', 'completeBy'] track by todo.id">
+                <md-item-content>
+                    <div layout="row"
+                         layout-align="start center"
+                         layout-margin layout-fill layout-padding>
+
+                        <md-checkbox flex="70"
+                                     ng-model="todo.completed"
+                                     ng-change="updateTodo(todo)"
+                                     aria-label="task completed?">
+
+                            <div class="md-tile-content"
+                                 ng-class="{'high-severity': todo.severity === 'High',
+                                            'medium-severity': todo.severity === 'Medium',
+                                            'low-severity': todo.severity === 'Low' }">
+                                <h3 ng-bind="todo.task"></h3>
+
+                                <div ng-bind="todo.completeBy | date: 'd MMM yyyy'"></div>
+                            </div>
+                        </md-checkbox>
+
+                        <md-button flex="10" ng-click="showTodoDialog($event, todo)">
+                            Edit
+                        </md-button>
+
+                        <md-button class="md-raised md-warn" flex="10" ng-click="deleteTodo(todo)">
+                            Delete
+                        </md-button>
+                    </div>
+                </md-item-content>
+            </md-item>
+        </md-list>
+    </md-content>
+</div>
+
+<script data-main="scripts/main"
+        src="bower_components/requirejs/require.js"></script>
+</body>
+</html>
